@@ -34,7 +34,9 @@ body.landing {
      position: relative;
      padding: 2rem;
      text-align: center;
-     opacity: 0;
+     opacity: 1;
+
+     /* Remove transition properties originally created for JavaScript version
      -webkit-transform: scaleX(0.75) translateY(3rem);
      -moz-transform: scaleX(0.75) translateY(3rem);
      transform: scaleX(0.75) translateY(3rem);
@@ -44,6 +46,8 @@ body.landing {
      -webkit-transition-delay: 0.4s;
      -moz-transition-delay: 0.4s;
      transition-delay: 0.4s;     
+*/
+     
  }
  
  .point .point-title {
