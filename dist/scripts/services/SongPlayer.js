@@ -21,8 +21,9 @@
         */
         var setSong = function(song) {
         	if (currentBuzzObject) {
-        		currentBuzzObject.stop();
-        		SongPlayer.currentSong.playing = null;
+                stopSong(song);
+        		// currentBuzzObject.stop();
+        		// SongPlayer.currentSong.playing = null;
         	}
 
         	currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -38,10 +39,21 @@
         * @desc Starts playing the currently selected song and sets the song.playing Boolean flag
         * @param {Object} song
         */
-        
         var playSong = function(song) {
          	currentBuzzObject.play();
          	song.playing = true;
+            console.log(currentAlbum.artist);
+        };
+
+        /** 
+        * @function stopSong
+        * @desc Stops playing the currently selected song and clears the song.playing Boolean flag
+        * @param {Object} song
+        */
+        var stopSong = function(song) {
+            currentBuzzObject.stop();
+            // song.playing = null;  // Not working.
+            SongPlayer.currentSong.playing = null;   // Not included in Assignement directions
         };
 
         /**
@@ -98,9 +110,30 @@
             currentSongIndex--;
 
             if (currentSongIndex < 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong(song);
+                // currentBuzzObject.stop();
+                // SongPlayer.currentSong.playing = null;
             } else {
+                var song = currentAlbum.songs[currentSongIndex];
+                setSong(song);
+                playSong(song);
+            }
+        };
+
+        SongPlayer.next = function() {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex++;
+            
+            console.log(Fixtures.getAlbum().songs);
+            console.log("currentSongIndex is " + currentSongIndex);
+
+            if (currentSongIndex >= Fixtures.getAlbum().songs.length) {
+                console.log("Inside currentSongIndex > songs.length conditional.");
+                stopSong(song);
+                // currentBuzzObject.stop();
+                // SongPlayer.currentSong.playing = null;
+            } else {
+                console.log("Inside 'else' segment of currentSongIndex > songs.length conditional.");
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
