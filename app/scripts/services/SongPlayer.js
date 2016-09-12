@@ -42,7 +42,6 @@
         var playSong = function(song) {
          	currentBuzzObject.play();
          	song.playing = true;
-            console.log(currentAlbum.artist);
         };
 
         /** 
@@ -124,16 +123,11 @@
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
             
-            console.log(Fixtures.getAlbum().songs);
-            console.log("currentSongIndex is " + currentSongIndex);
-
             if (currentSongIndex >= Fixtures.getAlbum().songs.length) {
-                console.log("Inside currentSongIndex > songs.length conditional.");
                 stopSong(song);
                 // currentBuzzObject.stop();
                 // SongPlayer.currentSong.playing = null;
             } else {
-                console.log("Inside 'else' segment of currentSongIndex > songs.length conditional.");
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
