@@ -1,6 +1,6 @@
 # **Bloc Jams** (AngularJS version)
 
-_ The below info is for the vanilla JS and jQuery version of this app. The code in this repository was refactored using Angular but has not been placed on any Node servers. _
+_The below info is for the vanilla JS and jQuery version of this app. The code in this repository was refactored using Angular but has not been placed on any Node servers._
 
 [http://jimsjams.netlify.com][1]
 
